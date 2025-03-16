@@ -30,8 +30,8 @@ local function createButton(text, position, onClick)
     return button
 end
 
-createButton("Banana Hub", UDim2.new(0, 20, 0, 20), function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/obiiyeuem/vthangsitink/main/BananaHub.lua"))()
+createButton("W-Azure Hub", UDim2.new(0, 20, 0, 20), function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-AzureHub-15617"))()
 end)
 
 createButton("Hoho Hub", UDim2.new(0, 20, 0, 70), function()
