@@ -1,54 +1,86 @@
-local screenGui = Instance.new("ScreenGui")
-screenGui.Parent = game.Players.LocalPlayer.PlayerGui
-screenGui.Name = "HubSelector"
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/daucobonhi/Ui-Redz-V2/refs/heads/main/UiREDzV2.lua")))()
 
-local frame = Instance.new("Frame")
-frame.Parent = screenGui
-frame.Size = UDim2.new(0, 300, 0, 300)
-frame.Position = UDim2.new(0.5, -150, 0.5, -150)
-frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-frame.BorderSizePixel = 3
-frame.BorderColor3 = Color3.fromRGB(255, 255, 255)
+local Window = MakeWindow({
+    Hub = {
+        Title = "DKsigma Roblox Hub",
+        Animation = "Super Sigma Boy!!!"
+    }
+})
 
-local function createButton(text, position, onClick)
-    local button = Instance.new("TextButton")
-    button.Parent = frame
-    button.Size = UDim2.new(0, 260, 0, 40)
-    button.Position = position
-    button.Text = text
-    button.TextColor3 = Color3.fromRGB(255, 255, 255)
-    button.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-    button.BorderSizePixel = 1
-    button.BorderColor3 = Color3.fromRGB(255, 255, 255)
-    
-    button.MouseButton1Click:Connect(function()
-        print("Chạy script cho Hub: " .. text)
-        screenGui:Destroy()
-        onClick()
-    end)
-    
-    return button
-end
+MinimizeButton({
+    Image = "http://www.roblox.com/asset/?id=8319027695191",
+    Size = {60, 60},
+    Color = Color3.fromRGB(10, 10, 10),
+    Corner = true,
+    Stroke = false,
+    StrokeColor = Color3.fromRGB(255, 0, 0)
+})
 
-createButton("W-Azure Hub", UDim2.new(0, 20, 0, 20), function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-AzureHub-15617"))()
-end)
+local Tab1o = MakeTab({Name = "Script keyless"})
+local Tab2o = MakeTab({Name = "Script need key"})
 
-createButton("Hoho Hub", UDim2.new(0, 20, 0, 70), function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HohoV2/main/ScriptLoad.lua"))()
-end)
+AddButton(Tab1o, {
+    Name = "Redz Hub",
+    Callback = function()
+        local Settings = {
+            JoinTeam = "Pirates",
+            Translator = true
+        }
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/BloxFruits/refs/heads/main/Source.lua"))(Settings)
+    end
+})
 
-createButton("Redz Hub", UDim2.new(0, 20, 0, 120), function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/BloxFruits/refs/heads/main/Source.lua"))()
-end)
+AddButton(Tab1o, {
+    Name = "W-azure Hub",
+    Callback = function()
+        local Settings = {
+            JoinTeam = "Pirates",
+            Translator = true
+        }
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-AzureHub-15617"))
+    end
+})
 
-createButton("Speed Hub", UDim2.new(0, 20, 0, 170), function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua"))()
-end)
-createButton("Monster Hub", UDim2.new(0, 20, 0, 170), function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/giahuy2511-coder/MonsterHub/refs/heads/main/MonsterHub"))()
-end)
+AddButton(Tab1o, {
+    Name = "Speed Hub",
+    Callback = function()
+        local Settings = {
+            JoinTeam = "Pirates",
+            Translator = true
+        }
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua"))
+    end
+})
 
-game:BindToClose(function()
-    screenGui:Destroy()
-end)
+AddButton(Tab1o, {
+    Name = "Monster Hub",
+    Callback = function()
+        local Settings = {
+            JoinTeam = "Pirates",
+            Translator = true
+        }
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/giahuy2511-coder/MonsterHub/refs/heads/main/MonsterHub"))
+    end
+})
+
+AddButton(Tab2o, {
+    Name = "Hoho Hub",
+    Callback = function()
+        local Settings = {
+            JoinTeam = "Pirates",
+            Translator = true
+        }
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HohoV2/main/ScriptLoad.lua"))
+    end
+})
+
+AddButton(Tab2o, {
+    Name = "Zenith Hub",
+    Callback = function()
+        local Settings = {
+            JoinTeam = "Pirates",
+            Translator = true
+        }
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Efe0626/RaitoHub/main/Script"))()
+    end
+})
