@@ -54,9 +54,7 @@ local toggleButton = Instance.new("ImageButton")
 toggleButton.Parent = screenGui
 toggleButton.Size = UDim2.new(0, 60, 0, 60)
 toggleButton.Position = UDim2.new(0, 10, 0, 10)
-
--- Thay thế Image này bằng URL ngoài mà bạn muốn sử dụng
-toggleButton.Image = "http://www.roblox.com/asset/?id=1108206343" -- URL ảnh ngoài
+toggleButton.Image = "http://www.roblox.com/asset/?id=1108206343" 
 toggleButton.BackgroundTransparency = 1
 
 local isVisible = true
