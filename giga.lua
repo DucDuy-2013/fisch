@@ -11,7 +11,7 @@ frame.BorderSizePixel = 0
 
 local uiCorner = Instance.new("UICorner")
 uiCorner.Parent = frame
-uiCorner.CornerRadius = UDim.new(0, 10)
+uiCorner.CornerRadius = UDim.new(0, 15)
 
 local title = Instance.new("TextLabel")
 title.Parent = frame
@@ -24,6 +24,10 @@ title.BorderSizePixel = 0
 title.TextScaled = true
 title.Font = Enum.Font.SourceSansBold
 
+local titleCorner = Instance.new("UICorner")
+titleCorner.Parent = title
+titleCorner.CornerRadius = UDim.new(0, 10)
+
 local tabFrame = Instance.new("Frame")
 tabFrame.Parent = frame
 tabFrame.Size = UDim2.new(0, 300, 0, 40)
@@ -31,12 +35,20 @@ tabFrame.Position = UDim2.new(0, 0, 0, 40)
 tabFrame.BackgroundColor3 = Color3.fromRGB(200, 50, 50)
 tabFrame.BorderSizePixel = 0
 
+local tabFrameCorner = Instance.new("UICorner")
+tabFrameCorner.Parent = tabFrame
+tabFrameCorner.CornerRadius = UDim.new(0, 10)
+
 local contentFrame = Instance.new("Frame")
 contentFrame.Parent = frame
 contentFrame.Size = UDim2.new(0, 300, 0, 320)
 contentFrame.Position = UDim2.new(0, 0, 0, 80)
 contentFrame.BackgroundColor3 = Color3.fromRGB(255, 100, 100)
 contentFrame.BorderSizePixel = 0
+
+local contentFrameCorner = Instance.new("UICorner")
+contentFrameCorner.Parent = contentFrame
+contentFrameCorner.CornerRadius = UDim.new(0, 10)
 
 local toggleButton = Instance.new("ImageButton")
 toggleButton.Parent = screenGui
@@ -49,6 +61,19 @@ local isVisible = true
 toggleButton.MouseButton1Click:Connect(function()
     isVisible = not isVisible
     frame.Visible = isVisible
+end)
+
+local closeButton = Instance.new("TextButton")
+closeButton.Parent = frame
+closeButton.Size = UDim2.new(0, 30, 0, 30)
+closeButton.Position = UDim2.new(1, -40, 0, 10)
+closeButton.Text = "X"
+closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+closeButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+closeButton.BorderSizePixel = 0
+closeButton.TextScaled = true
+closeButton.MouseButton1Click:Connect(function()
+    screenGui:Destroy()
 end)
 
 local function switchTab(tabName)
@@ -98,6 +123,12 @@ needKeyButton.MouseButton1Click:Connect(function()
     switchTab("ScriptNeedKey")
 end)
 
+local uiLayout = Instance.new("UIListLayout")
+uiLayout.Parent = tabFrame
+uiLayout.FillDirection = Enum.FillDirection.Horizontal
+uiLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+uiLayout.Padding = UDim.new(0, 10)
+
 local function createButton(parent, text, position, onClick)
     local button = Instance.new("TextButton")
     button.Parent = parent
@@ -136,9 +167,10 @@ createButton(tabNeedKey, "Hoho Hub", UDim2.new(0, 20, 0, 20), function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HohoV2/main/ScriptLoad.lua"))()
 end)
 
-createButton(tabNeedKey, "Zenith Hub", UDim2.new(0, 20, 0, 20), function()
+createButton(tabNeedKey, "Zenith Hub", UDim2.new(0, 20, 0, 70), function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Efe0626/ZenithHub/refs/heads/main/Loader"))()
 end)
+
 game:BindToClose(function()
     screenGui:Destroy()
 end)
